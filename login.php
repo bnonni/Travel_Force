@@ -18,7 +18,7 @@ html{
   <div class="header">
   	<h2>Login</h2>
   </div>
-  <form method="post" action="/login.php">
+  <form method="post" action="login.php">
   	<?php include('./aux/errors.php'); ?>
   	<div class="input-group">
   		<label>Username</label>
