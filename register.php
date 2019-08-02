@@ -1,15 +1,15 @@
 <?php
-include '../server/DBController.php';
+include 'server/DBController.php';
 $db_handle = new DBController();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Registration system PHP and MySQL</title>
-  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
 <style>
 html{
-	background:url('./images/travel-agent.jpg') no-repeat center center fixed;
+	background:url('images/travel-agent.jpg') no-repeat center center fixed;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
@@ -23,7 +23,7 @@ html{
   </div>
 
   <form method="post" action="register.php">
-  	<?php include('../aux/errors.php'); ?>
+  	<?php include('aux/errors.php'); ?>
   	<div class="input-group">
   	  <label>Username</label>
   	  <input type="text" name="username" value="<?php echo $username; ?>">
