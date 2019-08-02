@@ -16,6 +16,7 @@
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/cart.css">
 <style>
 html{
 	background:url('./images/travel-agent.jpg') no-repeat center center fixed;

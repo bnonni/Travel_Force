@@ -17,5 +17,5 @@ function checkForm(form) {
     } else {
         document.getElementById("Visa").style.display = "none";
     }
-    return shouldReturn; // passed all the checks: OK to submit... FOR NOW YOU HEATHEAN!
+    return shouldReturn; // passed all the checks: OK to submit
 }

@@ -8,7 +8,7 @@
   <link href="css/cart.css" type="text/css" rel="stylesheet" />  
 </head>
 <body>
-<div id="main_contain" style="width: 25em; height: 20em;">
+<div id="main_contain" style="width: 25em; height:19em;">
 <h1>Confirmation</h1>
 <?php
 foreach($_POST as $key => $val){
@@ -29,7 +29,11 @@ foreach($_POST as $key => $val){
   print($confNum);
  }
  print("</p>");
+
+ $_SESSION['confirmation'] = $confNum;
 ?>
+<p><a href="index.php?logout='1'" style="font-weight: 800; text-decoration: none; color:#5F9EA0;">Logout |</a>
+<a href="index.html" style="font-weight: 800; text-decoration: none; color:#5F9EA0;">Home</a></p>
 </div>
 </body>
 </html>

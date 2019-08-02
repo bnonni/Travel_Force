@@ -4,31 +4,62 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/home.css">
+  <style>
+    #main_contain {
+      background-color: white;
+      border: 1px black solid;
+      color: black;
+      width: 20em;
+      height: 10em;
+      padding: 10em 10em 10em 10em;
+      margin: 0 auto;
+      margin-top: 10em
+    }
+
+    a {
+      text-decoration: none;
+      color: #5F9EA0;
+    }
+
+    #two {
+      float: right;
+      position: relative;
+      bottom: 2em;
+      left: 4em;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="/login.php">Login</a>
-    <a href="/register.php">Register</a>
-    <a href="/search.php">Car Rental</a>
-    <a href="/search.php">Parking Services</a>
-    <a href="/login.php">Logout</a>
+  <div style="background-color: rgba(0,0,0,0.4)" id="top">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="/login.php">Login</a>
+      <a href="/register.php">Register</a>
+      <a href="/search.php">Car Rental</a>
+      <a href="/search.php">Parking Services</a>
+      <a href="/login.php">Logout</a>
+    </div>
+    <div id="main">
+      <h1 style="border-radius: 10px">Welcome to Travel Force</h1>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
+    </div>
   </div>
-  <div id="main">
-    <h1>Welcome to the Travel Force</h1>
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
+  <div id="main_contain">
+    <h2 style="    margin: 0;
+    position: relative;
+    right: 1em;"><a href="/search.php">Rent a Car</a></h2>
+    <h2 id="two"><a href="/search.php">Parking Services</a></h2>
   </div>
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
       document.getElementById("main").style.marginLeft = "250px";
-      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      document.getElementById("top").style.backgroundColor = "rgba(0,0,0,0.4)";
     }
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-      document.body.style.backgroundColor = "white";
+      document.getElementById("main").style.marginLeft = "0"
     }
   </script>
 </body>

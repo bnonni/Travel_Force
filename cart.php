@@ -1,7 +1,4 @@
-<?php 
-include './server/DBController.php';
-$db_handle = new DBController();
-?>
+<?php include './server/DBController.php'; $db_handle = new DBController(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -30,31 +27,20 @@ $db_handle = new DBController();
 <h2>Cart</h2>
 <?php
 foreach($_REQUEST as $key => $val){
- if($val != $_REQUEST["_ga"]){
-  if($val != $_REQUEST["PHPSESSID"]){
-   // if($val == $_REQUEST[])
-   print("<p>$key: $val</p>\n");
-  }
- }
-}
+ if($val != $_REQUEST["_ga"]){if($val != $_REQUEST["PHPSESSID"]){ print("<p>$key: $val</p>\n"); } } }
 ?>
 </div>
 <form action="confirmation.php" method="post" id="signup_form" oninput="checkForm(this);">
 <h1>Credit Card Form</h1>
 <div class="container">
-
   <label id="CardNumberLabel" for="cardNumber">Card Number</label> 
   <input id="cardNumber" name="cardNumber" type="text" />
-
   <label id="security" for="security">Security Code</label>
   <input id="security" name="security" type="security" />
-  
   <label id="NameOnCardLabel" for="NameOnCard">Name On Card</label>
   <input id="NameOnCard" name="NameOnCard" type="text" />
-  
   <label id="expiration" for="expiration">Expiration</label>
-  <?php
-    echo "<select name=Month>";
+  <?php echo "<select name=Month>";
     for($i = 0; $i <= 11; $i++){
       $month = date('F', strtotime("first day of $i month"));
       echo "<option value=$month>$month</option> ";
@@ -65,8 +51,7 @@ foreach($_REQUEST as $key => $val){
       $year = date('Y', strtotime("last day of +$i year"));
       echo "<option name='$year'>$year</option>";
     }
-    echo "</select>";
-  ?>
+    echo "</select>"; ?>
   <input style="width: 100%;margin-bottom: 0;" id="submit" type="submit" value="Checkout">
   <div style="margin-top: 1em;" class="amexClass" id="AmericanExpress"></div>
   <div style="margin-top: 1em;" class="visaClass" id="Visa"></div>
@@ -87,20 +72,3 @@ foreach($_REQUEST as $key => $val){
     }
   </script>
 </html>
-
-<!-- // $carID = array($_POST['CarID']);
-// foreach($carID as $id){
-//  $query = "SELECT * from cars WHERE CarID='{$id}'";
-//  $result = $db_handle->runQuery($query);
-// }
-// foreach ($result as $key => $value) {
-//  echo 'Car ID: '.$result[$key]['CarID'].'<br>';
-//  echo 'Make: '.$result[$key]['make'].'<br>';
-//  echo 'Color: '.$result[$key]['color'].'<br>';
-//  echo 'Model: '.$result[$key]['model'].'<br>';
-//  echo 'Year: '.$result[$key]['year'].'<br>';
-//  echo 'Class: '.$result[$key]['class'].'<br>';
-//  echo 'Location: '.$result[$key]['location'].'<br>';
-//  echo 'Price: '.$result[$key]['price'].'<br>';
-//  echo 'Available: '.$result[$key]['available'].'<br>';
-// } -->
