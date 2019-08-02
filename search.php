@@ -101,7 +101,6 @@ $classResult = $db_handle->runQuery("SELECT DISTINCT class FROM cars ORDER BY cl
                 <input type="hidden" name="availability" class="CarID<?php echo $result[$key]['CarID']?>" value="<?php echo $result[$key]['available']?>"><?php echo $result[$key]['available']; ?>
                 </td>
             </tr>
-            
         <?php }} ?>
         </tbody>
         </table>

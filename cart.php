@@ -2,7 +2,6 @@
 include './server/DBController.php';
 $db_handle = new DBController();
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -28,50 +27,50 @@ $db_handle = new DBController();
     <a href="./login.php">Logout</a>
   </div>
 <div id="main_contain">
-<h2>Checkout</h2>
+<h2>Cart</h2>
 <?php
 foreach($_REQUEST as $key => $val){
  if($val != $_REQUEST["_ga"]){
   if($val != $_REQUEST["PHPSESSID"]){
    // if($val == $_REQUEST[])
-   print("<p>$key = $val</p>\n");
+   print("<p>$key: $val</p>\n");
   }
  }
 }
 ?>
 </div>
+<form action="confirmation.php" method="post" id="signup_form" oninput="checkForm(this);">
+<h1>Credit Card Form</h1>
+<div class="container">
 
-<div id="bodyTable">
-<form action="../aux/output.php" method="post" id="signup_form" oninput="checkForm(this);">
-<h2>Credit Card Form</h2>
-   <h1>User Registration</h1>
+  <label id="CardNumberLabel" for="cardNumber">Card Number</label> 
+  <input id="cardNumber" name="cardNumber" type="text" />
 
-  <label id="password_label" for="password">Security Code</label>
-  <input id="password" name="password" type="password" />
-
-  <label id="CardNumberLabel" for="cardNumber">Card Number:</label> 
-  <input id="cardNumber" name="cardNumbere" type="text" />
+  <label id="security" for="security">Security Code</label>
+  <input id="security" name="security" type="security" />
   
   <label id="NameOnCardLabel" for="NameOnCard">Name On Card</label>
   <input id="NameOnCard" name="NameOnCard" type="text" />
   
-  <label id="expiration" for = "expiration">Expiration</label>
-  <input id="submit" type="submit" value="Checkout">
+  <label id="expiration" for="expiration">Expiration</label>
   <?php
-    echo "<select name=month>";
+    echo "<select name=Month>";
     for($i = 0; $i <= 11; $i++){
       $month = date('F', strtotime("first day of $i month"));
       echo "<option value=$month>$month</option> ";
     }
     echo "</select>";
-    echo "<select name=year>";
+    echo "<select name=Year>";
     for($i = 0; $i <= 5; $i++){
       $year = date('Y', strtotime("last day of +$i year"));
       echo "<option name='$year'>$year</option>";
     }
     echo "</select>";
   ?>
-  <input id="submit" type="submit" value="Check Out" />
+  <input style="width: 100%;margin-bottom: 0;" id="submit" type="submit" value="Checkout">
+  <div style="margin-top: 1em;" class="amexClass" id="AmericanExpress"></div>
+  <div style="margin-top: 1em;" class="visaClass" id="Visa"></div>
+  <div style="margin-top: 1em;" class="masterClass" id="MasterCard"></div>
   </div>
 </form>
 </body>

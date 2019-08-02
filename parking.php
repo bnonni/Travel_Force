@@ -12,13 +12,8 @@ $db_handle = new DBController();
   </script>
   <link rel="stylesheet" href="css/parking.css">
 </head>
-
 <body>
-
-<form action="../aux/output.php"
-      method="post"
-      id="signup_form"
-      onsubmit="return checkForm(this);">
+<form action="../aux/output.php" method="post" id="signup_form" onsubmit="return checkForm(this);">
 <table id = "bodyTable">
   <tr>
     <th colspan="2"> <h1>Credit Card Scanner</h1> </th></tr>
