@@ -1,12 +1,7 @@
-<?php
-session_start();
-include './server/DBController.php';
-$db_handle = new DBController();
-$classResult = $db_handle->runQuery("SELECT DISTINCT class FROM cars ORDER BY class ASC");
-?>
+<?php session_start(); include './server/DBController.php'; $db_handle = new DBController(); $classResult = $db_handle->runQuery("SELECT DISTINCT class FROM cars ORDER BY class ASC"); ?>
 <html>
 <head>
-<link href="css/search.css" type="text/css" rel="stylesheet" />
+<link href="css/search.css" type="text/css" rel="stylesheet"/>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <title>Search Car Information</title>
 </head>
@@ -14,24 +9,18 @@ $classResult = $db_handle->runQuery("SELECT DISTINCT class FROM cars ORDER BY cl
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="./login.php">Login</a>
-    <a href="./login.php">Register</a>
-    <a href="./search.php">Car Rental</a>
-    <a href="./search.php">Parking Services</a>
-    <a href="./login.php">Logout</a>
+    <a href="/login.php">Login</a>
+    <a href="/login.php">Register</a>
+    <a href="/search.php">Car Rental</a>
+    <a href="/search.php">Parking Services</a>
+    <a href="/login.php">Logout</a>
   </div>
     <h2>Rent-A-Car</h2>
     <form method="post" name="search" action="./search.php">
             <div class="search-box">
                 <select id="Place" name="class[]" multiple="multiple">
                     <option value="0" selected="selected">Select class</option>
-                        <?php
-                        if (! empty($classResult)) {
-                            foreach ($classResult as $key => $value) {
-                                echo '<option value="' . $classResult[$key]['class'] . '">' . $classResult[$key]['class'] . '</option>';
-                            }
-                        }
-                        ?>
+                        <?php if(!empty($classResult)){ foreach($classResult as $key => $value){ echo '<option value="' . $classResult[$key]['class'] . '">' . $classResult[$key]['class'] . '</option>'; } } ?>
                 </select><br><br>
                 <button id="Filter">Search</button>
             </div>
